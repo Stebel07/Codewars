@@ -1,0 +1,30 @@
+#https://www.codewars.com/kata/5277c8a221e209d3f6000b56/train/python
+def valid_braces(string):
+    s = string
+    a = False
+    if s.count('[') == s.count(']') and s.count('(') == s.count(')') and s.count('{') == s.count('}'):
+        a = True
+    if '{]' in s or '{)' in s or '[}' in s or '[)' in s or '(}' in s or '(]' in s:
+        a = False
+    so = 0
+    sz = 0
+    ko = 0
+    kz = 0
+    to = 0
+    tz = 0
+    for i in range(0,len(s)):
+        if s[i] == '(':
+            so = i
+        if s[i] == ')':
+            sz = i
+        if s[i] == '[':
+            ko = i
+        if s[i] == ']':
+            kz = i
+        if s[i] == '{':
+            to = i
+        if s[i] == '}':
+            tz = i
+    if tz < to or sz < so or kz < ko:
+        a = False
+    return a
