@@ -1,0 +1,14 @@
+def beeramid(bonus, price):
+    cl = 0
+    can = 0
+    i = 1
+    s = 0
+    while bonus >= price:
+        bonus -= price
+        can += 1
+    while can > s:
+        can -= s
+        i += 1
+        s = i ** 2
+        cl += 1
+    return cl
