@@ -1,0 +1,19 @@
+def valid_ISBN10(isbn): 
+    result = False #результат
+    prov = True #проверка
+    num = [] #список чисел
+    sum = 0 #сумма
+    order = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #порядок
+    for i in isbn:
+        num.append(i)
+    if num[-1] == 'X':
+        num[-1] = '10'
+    for i in range(0, len(num)):
+        try:
+            sum += (int(num[i]) * order[i])
+        except:
+            prov = False
+            break
+    if sum % 11 == 0 and prov == True and len(num) == 10:
+        result = True
+    return result
